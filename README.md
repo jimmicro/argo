@@ -2,6 +2,8 @@
 
 argo 是一个轻量级的 Go panic 处理库，提供了优雅的方式来处理 goroutine 中的 panic 和错误。
 
+[![Check](https://github.com/jimmicro/argo/actions/workflows/check.yaml/badge.svg)](https://github.com/jimmicro/argo/actions/workflows/check.yaml)
+
 ## 特性
 
 - 自动捕获并记录 goroutine 中的 panic
@@ -23,9 +25,16 @@ import "github.com/jimmicro/argo"
 
 func main() {
     // 使用 Go 函数启动一个安全的 goroutine
-    rgo.Go(func() {
+    argo.Go(func() {
         // 这里的 panic 会被捕获并记录
         panic("test panic")
     })
 }
- ```
+```
+
+## 开发
+
+```bash
+golangci-lint run ./...
+go test ./...
+```
